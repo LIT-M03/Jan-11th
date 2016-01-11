@@ -1,0 +1,17 @@
+﻿@model MvcApplication2.Controllers.Thing
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="/public/test.js"></script>
+    <title></title>
+</head>
+<body style="margin-top: 100px; margin-left: 200px;">
+<form method="POST" action="/demo/post" id="silly-form">
+    <input type="text" class="input input-lg" style="width: 700px;" name="word" value="@Model.Word"/>
+    <input type="hidden" name="value" value="1836"/>
+    <button>Submit</button>
+</form>
+</body>
+</html>

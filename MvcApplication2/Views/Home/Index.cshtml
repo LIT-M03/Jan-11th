@@ -1,0 +1,39 @@
+﻿@using MvcApplication2.Models;
+@model IEnumerable<Person>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="/public/test.js"></script>
+    <title></title>
+</head>
+<body>
+<div class="container">
+    <a href="/home/add" class="btn btn-primary">Add Person</a>
+    <table class="table table-hover table-striped table-bordered">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (Person p in Model)
+        {
+            <tr>
+                <td>@p.FirstName</td>
+                <td>@p.LastName</td>
+                <td>@p.Age</td>
+                <td>
+                    <a href="/home/edit?pid=@p.Id" class="btn btn-warning">Edit</a>
+                    <form method="POST" action="/home/delete">
+                        <input type="hidden" name="pid" value="@p.Id"/>
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+</body>
+</html>
